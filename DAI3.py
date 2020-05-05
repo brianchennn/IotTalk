@@ -14,9 +14,9 @@ mac_addr = 'C860358BD259'  # put here for easy to modify;;  the mac_addr in DAN.
 # Copy DAI.py to DAI2.py and then modify the above mac_addr, then you can have two dummy devices
 Reg_addr = mac_addr   # Otherwise, the mac addr generated in DAN.py will always be the same !
 
-DAN.profile['dm_name']='Dummy_Device'   # you can change this but should also add the DM in server
-DAN.profile['df_list']=['Dummy_Sensor', 'Dummy_Control']
-#DAN.profile['d_name']= None # None for autoNaming
+DAN.profile['dm_name']='CLH_Dummy'   # you can change this but should also add the DM in server
+DAN.profile['df_list']=['Dummy_Sensor','Color-I' ,'Dummy_Control']
+DAN.profile['d_name']= '我是輸出' # None for autoNaming
 DAN.device_registration_with_retry(ServerURL, Reg_addr)
 
 # global gotInput, theInput
@@ -64,7 +64,7 @@ while True:
            except:
               value2=0
            gotInput=False   # so that you can input again 
-           if(allDead): break;
+           if(allDead): break
            DAN.push ('Dummy_Sensor', value2,  value2)
 
     except Exception as e:
