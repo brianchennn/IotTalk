@@ -6,17 +6,17 @@ import threading, sys
 # ServerURL = 'http://Your_server_IP_or_DomainName:9999' #with no secure connection
 # ServerURL = 'http://192.168.20.101:9999' #with no secure connection
 #  注意你用的 IoTtalk 伺服器網址或 IP
-ServerURL = 'https://demo.iottalk.tw' #with SSL secure connection
+ServerURL = 'https://7.iottalk.tw' #with SSL secure connection
 # ServerURL = 'https://Your_DomainName' #with SSL connection  (IP can not be used with https)
 Reg_addr = None #if None, Reg_addr = MAC address
 
-mac_addr = 'C8600033433'  # put here for easy to modify;;  the mac_addr in DAN.py is NOT used
+mac_addr = 'C86000334533'  # put here for easy to modify;;  the mac_addr in DAN.py is NOT used
 # Copy DAI.py to DAI2.py and then modify the above mac_addr, then you can have two dummy devices
 Reg_addr = mac_addr   # Otherwise, the mac addr generated in DAN.py will always be the same !
 
-DAN.profile['dm_name']='3D-Dummy_Device.out'   # you can change this but should also add the DM in server
+DAN.profile['dm_name']='Dummy_Device'   # you can change this but should also add the DM in server
 DAN.profile['df_list']=['Dummy_Sensor', 'Dummy_Control']
-#DAN.profile['d_name']= None # None for autoNaming
+DAN.profile['d_name']= '0716211G' # None for autoNaming
 DAN.device_registration_with_retry(ServerURL, Reg_addr)
 
 # global gotInput, theInput

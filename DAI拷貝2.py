@@ -3,7 +3,7 @@ import DAN
 
 ServerURL = 'https://7.iottalk.tw'      #with non-secure connection
 #ServerURL = 'https://DomainName' #with SSL connection
-Reg_addr = 'C860008B4249' #if None, Reg_addr = MAC address
+Reg_addr = 'C860018B4249' #if None, Reg_addr = MAC address
 
 DAN.profile['dm_name']='Dummy_Device'
 DAN.profile['df_list']=['Dummy_Sensor', 'Dummy_Control',]

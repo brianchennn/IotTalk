@@ -89,6 +89,7 @@ def register_device(addr):
 
     print('IoTtalk Server = {}'.format(csmapi.ENDPOINT))
     profile['d_name'] = csmapi.register(MAC,profile)
+    #profile['d_name'] = '0716211L'
     print ('This device has successfully registered.')
     print ('Device name = ' + profile['d_name'])
          
