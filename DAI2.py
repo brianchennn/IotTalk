@@ -96,6 +96,7 @@ while True:
 time.sleep(0.5)
 try: 
    DAN.deregister()
+   
 except Exception as e:
    print("===")
 print("Bye ! --------------", flush=True)
