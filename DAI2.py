@@ -51,6 +51,7 @@ threadx.start()
 R=(0,255,0,255,0,204,0,153)
 G=(0,0,255,255,0,0,204,153)
 B=(0,0,0,0,255,153,204,153)
+color=[0,0,0]
 while True:
     try:
     #Pull data from a device feature called "Dummy_Control"
@@ -62,18 +63,23 @@ while True:
            if theInput =='quit' or theInput=="exit":
               break;  #  sys.exit( );
            #value2=random.uniform(1, 10)
-           try:
+           sss = theInput.split(' ')
+           if(len(sss)==1):
+              flag=1
               value2=float( theInput )
-           except:
-              value2=0
+           elif(len(sss)>=2):
+              if(len(sss)==2):
+                 sss.append(color[2])
+              for i in range(3):
+                 color[i]=float(sss[i])
+              flag=2
+              
            gotInput=False   # so that you can input again 
            if(allDead): break
-           if(value2>=0):
+           if(flag==1):
               DAN.push ('Dummy_Sensor', value2,  value2)
-           else:
-               gg=-int(value2)
-               if(gg > 7):gg=7
-               DAN.push ('Color-I', R[gg],  G[gg], B[gg])
+           elif(flag==2):   
+              DAN.push ('Color-I', color[0],  color[1], color[2])
 
     except Exception as e:
         print(e)
@@ -93,4 +99,4 @@ try:
 except Exception as e:
    print("===")
 print("Bye ! --------------", flush=True)
-sys.exit( );
+sys.exit( )
